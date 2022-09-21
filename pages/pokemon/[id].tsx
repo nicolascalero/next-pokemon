@@ -7,6 +7,7 @@ import { Layout } from '../../components/layout';
 import { Pokemon } from '../../interfaces';
 import { localFavorites } from '../../utils';
 import confetti from 'canvas-confetti';
+import styles from '../../styles/utili.module.css'
 
 interface Props {
     pokemon: Pokemon
@@ -51,16 +52,17 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                         </Card.Body>
                     </Card>
                 </Grid>
-
-                <Grid xs={12} sm={8}>
+                {/* md={2} xl={1} */}
+                <Grid xs={12} sm={8} >
                     <Card>
                         <Card.Header css={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <Text h1 transform='capitalize'>{pokemon.name}</Text>
+                            <Text css={{ fontSize: '5vw' }} h1 transform='capitalize'>{pokemon.name}</Text>
 
                             <Button
                                 color="gradient"
                                 ghost={!isInFavorites}
                                 onClick={onToggleFavorite}
+
                             >
                                 {isInFavorites ? 'En favoritos' : 'Guardar en favoritos'}
                             </Button>
@@ -104,7 +106,7 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                     </Card>
                 </Grid>
             </Grid.Container>
-        </Layout>
+        </Layout >
     )
 }
 
